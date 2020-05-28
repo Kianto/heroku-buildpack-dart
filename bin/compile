@@ -44,7 +44,7 @@ build_pubspec() {
       echo "Error: Directory flutter does not exists."
       git clone https://github.com/flutter/flutter.git
       cd flutter
-      sudo rm -r examples
+      rm -rf examples
       cd ..
   fi
   ls -a
@@ -124,7 +124,7 @@ esac
 
 git clone https://github.com/flutter/flutter.git
 cd flutter
-sudo rm -r examples
+rm -rf examples
 cd ..
 
 message "-----> Copy Dart binaries to app root"
