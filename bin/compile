@@ -36,7 +36,8 @@ build_pubspec() {
   
   cd $BUILD_DIR/flutter-master
   #cd $BUILD_DIR/$pub_dir
-   
+  ls -a
+  
   /bin/flutter --version
   
   message "*** Running flutter pub get"
