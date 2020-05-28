@@ -51,6 +51,8 @@ build_pubspec() {
   message "*** Running flutter pub get"
   #start pub from the /app folder to have correct symlink paths
   ./flutter/bin/flutter pub get
+  ./flutter/bin/flutter config --enable-web
+  ./flutter/bin/flutter devices
 
   if [ -d "web" ]
   then
