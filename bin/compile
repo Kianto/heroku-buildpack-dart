@@ -102,25 +102,25 @@ message "-----> Installing Dart VM via URL $DART_SDK_URL"
 
 cd $CACHE_DIR
 
-case "${DART_SDK_URL: -3}" in
-  tar)
-    message "SDK: tarball detected"
-    curl -L -k $DART_SDK_URL -o - | tar xzf -
-    ;;
-  zip)
-    message "SDK: zip detected"
-    curl -L -k $DART_SDK_URL > dart-sdk.zip ; unzip -o -q dart-sdk.zip
-    #curl -L -k $FLUTTER_SDK_URL > flutter-master.zip; unzip -o -q flutter-master.zip
-    ;;
-  deb)
-    message "SDK: deb detected"
-    # TODO
-    message "Please use the .zip Dart SDK"
-    ;;
-  *)
-    message "Invalid Dart SDK URL" #kill after this or keep going in case SDK is there from last push?
-    ;;
-esac
+# case "${DART_SDK_URL: -3}" in
+#   tar)
+#     message "SDK: tarball detected"
+#     curl -L -k $DART_SDK_URL -o - | tar xzf -
+#     ;;
+#   zip)
+#     message "SDK: zip detected"
+#     curl -L -k $DART_SDK_URL > dart-sdk.zip ; unzip -o -q dart-sdk.zip
+#     #curl -L -k $FLUTTER_SDK_URL > flutter-master.zip; unzip -o -q flutter-master.zip
+#     ;;
+#   deb)
+#     message "SDK: deb detected"
+#     # TODO
+#     message "Please use the .zip Dart SDK"
+#     ;;
+#   *)
+#     message "Invalid Dart SDK URL" #kill after this or keep going in case SDK is there from last push?
+#     ;;
+# esac
 
 message "-----> Copy Dart binaries to app root"
 cp -r $CACHE_DIR/dart-sdk $BUILD_DIR
