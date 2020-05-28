@@ -122,21 +122,8 @@ case "${DART_SDK_URL: -3}" in
     ;;
 esac
 
-if [ -d "flutter" ] 
-then
-    echo "Directory flutter exists." 
-else
-    echo "Error: Directory flutter does not exists."
-    git clone https://github.com/flutter/flutter.git
-    cd flutter	
-    rm -rf examples	
-    cd ..
-fi
-
 message "-----> Copy Dart binaries to app root"
 cp -r $CACHE_DIR/dart-sdk $BUILD_DIR
-message "-----> Copy Flutter binaries to app root"
-cp -r $CACHE_DIR/flutter $BUILD_DIR
 
 # we need to copy the sdk into the /app folder in order for the sdk libraries
 # to be referenced correctly
