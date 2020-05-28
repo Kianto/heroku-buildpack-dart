@@ -43,6 +43,9 @@ build_pubspec() {
   else
       echo "Error: Directory flutter does not exists."
       git clone https://github.com/flutter/flutter.git
+      cd flutter
+      rm examples
+      cd ..
   fi
   ls -a
   
@@ -120,6 +123,9 @@ case "${DART_SDK_URL: -3}" in
 esac
 
 git clone https://github.com/flutter/flutter.git
+cd flutter
+rm examples
+cd ..
 
 message "-----> Copy Dart binaries to app root"
 cp -r $CACHE_DIR/dart-sdk $BUILD_DIR
@@ -146,7 +152,7 @@ then
   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
   for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
     build_pubspec $filename
-    break
+#     break
   done
 else
   message "PUBSPEC_PATH is set to $PUBSPEC_PATH"
