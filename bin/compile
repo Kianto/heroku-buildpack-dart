@@ -140,17 +140,18 @@ message "-----> Dart reports version: $CAN_DART_RUN"
 
 cd $BUILD_DIR
 
-build_pubspec ``
-# if [ -z "$PUBSPEC_PATH" ]
-# then
-#   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
-#   for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
-#     build_pubspec $filename
-#   done
-# else
-#   message "PUBSPEC_PATH is set to $PUBSPEC_PATH"
-#   build_pubspec $PUBSPEC_PATH
-# fi
+# build_pubspec ``
+if [ -z "$PUBSPEC_PATH" ]
+then
+  message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
+  for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
+    build_pubspec $filename
+    break
+  done
+else
+  message "PUBSPEC_PATH is set to $PUBSPEC_PATH"
+  build_pubspec $PUBSPEC_PATH
+fi
 
 
 # I think heroku deletes all the contents of /app and replaces it with
