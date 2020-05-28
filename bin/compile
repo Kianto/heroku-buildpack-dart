@@ -107,6 +107,8 @@ case "${DART_SDK_URL: -3}" in
     ;;
 esac
 
+ls -a
+
 message "-----> Copy Dart binaries to app root"
 cp -r $CACHE_DIR/dart-sdk $BUILD_DIR
 message "-----> Copy Flutter binaries to app root"
