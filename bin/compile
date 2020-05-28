@@ -37,6 +37,7 @@ build_pubspec() {
 
   message "*** Running flutter pub get"
 
+  /app/ls -a
   /app/flutter/bin/flutter --version
 
   #start pub from the /app folder to have correct symlink paths
