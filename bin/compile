@@ -43,9 +43,6 @@ build_pubspec() {
   else
       echo "Error: Directory flutter does not exists."
       git clone https://github.com/flutter/flutter.git
-      cd flutter
-      rm -rf examples
-      cd ..
   fi
   ls -a
   
@@ -128,9 +125,6 @@ then
 else
     echo "Error: Directory flutter does not exists."
     git clone https://github.com/flutter/flutter.git
-    cd flutter
-    rm -rf examples
-    cd ..
 fi
 
 message "-----> Copy Dart binaries to app root"
@@ -158,20 +152,14 @@ then
   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
   for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
     echo $filename
-#     build_pubspec $filename
-#     break
+    build_pubspec $filename
+    break
   done
 else
   message "PUBSPEC_PATH is set to $PUBSPEC_PATH"
   build_pubspec $PUBSPEC_PATH
 fi
 
-for filename in `find . -name pubspec.yaml | grep -v dart-sdk | grep -v pub-cache`; do
-#     echo $filename
-    build_pubspec $filename
-#     break
-done
-  
 # I think heroku deletes all the contents of /app and replaces it with
 # whatever is in $BUILD_DIR, so copy over the pub-cache. Why not put it in
 # $BUILD_DIR in the first place? because we need symlinks setup correctly.
