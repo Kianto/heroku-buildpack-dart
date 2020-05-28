@@ -140,7 +140,7 @@ message "-----> Dart reports version: $CAN_DART_RUN"
 
 cd $BUILD_DIR
 
-build_pubspec
+build_pubspec ``
 # if [ -z "$PUBSPEC_PATH" ]
 # then
 #   message "PUBSPEC_PATH is not set. Looping through all pubspec.yaml files."
