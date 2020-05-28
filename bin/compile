@@ -36,7 +36,7 @@ build_pubspec() {
   cd $BUILD_DIR/$pub_dir
   
   
-  /app/ls -a
+  ls -a
   /app/flutter/bin/flutter --version
   /app/flutter-sdk/bin/flutter --version
   
