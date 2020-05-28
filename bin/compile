@@ -37,6 +37,13 @@ build_pubspec() {
   #cd $BUILD_DIR/flutter
   cd $BUILD_DIR/$pub_dir
   
+  if [ -d "flutter" ] 
+  then
+      echo "Directory flutter exists." 
+  else
+      echo "Error: Directory flutter does not exists."
+      git clone https://github.com/flutter/flutter.git
+  fi
   ls -a
   
   ./flutter/bin/flutter --version
