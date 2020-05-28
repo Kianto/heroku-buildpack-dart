@@ -33,10 +33,14 @@ build_pubspec() {
   
   pub_dir=`dirname $filename`
   message "*** Found pubspec.yaml in $BUILD_DIR/$pub_dir"
+  
+  ls -a
+  cd $BUILD_DIR
+  ls -a
   cd $BUILD_DIR/$pub_dir
   
   ls -a
-  cd ..
+  cd ../..
   ls -a
   
   /app/flutter-master/bin/flutter --version
