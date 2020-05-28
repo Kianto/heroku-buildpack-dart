@@ -43,6 +43,9 @@ build_pubspec() {
   else
       echo "Error: Directory flutter does not exists."
       git clone https://github.com/flutter/flutter.git
+      cd flutter	
+      rm -rf examples	
+      cd ..
   fi
   ls -a
   
@@ -125,6 +128,9 @@ then
 else
     echo "Error: Directory flutter does not exists."
     git clone https://github.com/flutter/flutter.git
+    cd flutter	
+    rm -rf examples	
+    cd ..
 fi
 
 message "-----> Copy Dart binaries to app root"
