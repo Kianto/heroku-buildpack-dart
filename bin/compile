@@ -35,7 +35,7 @@ build_pubspec() {
   message "*** Found pubspec.yaml in $BUILD_DIR/$pub_dir"
   cd $BUILD_DIR/$pub_dir
   
-  
+  cd lib
   ls -a
   /app/flutter/bin/flutter --version
   /app/flutter-sdk/bin/flutter --version
