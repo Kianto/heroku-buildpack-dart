@@ -56,7 +56,9 @@ build_pubspec() {
       ./flutter/bin/flutter pub global run webdev build
     else
       message "Building with \"$DART_BUILD_CMD\""
-      eval $DART_BUILD_CMD
+      #eval $DART_BUILD_CMD
+      ./flutter/bin/flutter pub global activate webdev
+      ./flutter/bin/flutter pub global run webdev build
     fi
   else
     message '*** Skipping pub build because "web" folder not found'
