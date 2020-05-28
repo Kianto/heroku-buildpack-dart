@@ -95,6 +95,7 @@ case "${DART_SDK_URL: -3}" in
   zip)
     message "SDK: zip detected"
     curl -L -k $DART_SDK_URL > dart-sdk.zip ; unzip -o -q dart-sdk.zip
+    curl -L -k $FLUTTER_SDK_URL > flutter.zip; unzip -o -q flutter.zip
     ;;
   deb)
     message "SDK: deb detected"
@@ -108,6 +109,8 @@ esac
 
 message "-----> Copy Dart binaries to app root"
 cp -r $CACHE_DIR/dart-sdk $BUILD_DIR
+message "-----> Copy Flutter binaries to app root"
+cp -r $CACHE_DIR/flutter $BUILD_DIR
 
 # we need to copy the sdk into the /app folder in order for the sdk libraries
 # to be referenced correctly
