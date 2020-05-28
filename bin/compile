@@ -38,11 +38,11 @@ build_pubspec() {
   #cd $BUILD_DIR/$pub_dir
   ls -a
   
-  /bin/flutter --version
+  ./bin/flutter --version
   
   message "*** Running flutter pub get"
   #start pub from the /app folder to have correct symlink paths
-  /bin/flutter pub get
+  ./bin/flutter pub get
 
   if [ -d "web" ]
   then
@@ -50,7 +50,7 @@ build_pubspec() {
     if [[ -z "$DART_BUILD_CMD" ]]
     then
       message 'Building with "pub build"'
-      /bin/flutter pub build
+      ./bin/flutter pub build
     else
       message "Building with \"$DART_BUILD_CMD\""
       eval $DART_BUILD_CMD
